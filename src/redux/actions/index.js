@@ -7,6 +7,7 @@ export const GET_QUEEN_FETCH = "GET_QUEEN_FETCH";
 export const GET_BEATLES_FETCH = "GET_BEATLES_FETCH";
 export const NOW_PLAYING = "NOW_PLAYING";
 export const IS_PLAYING = "IS_PLAYING";
+export const GET_SEARCH_FETCH = "GET_SEARCH_FETCH";
 
 export const isPlayingAction = (payload) => {
   return {
@@ -101,6 +102,28 @@ export const getFetchAction3 = () => {
       .then((datas) => {
         dispatch({
           type: GET_BEATLES_FETCH,
+          payload: datas.data,
+        });
+      })
+      .catch((err) => {
+        console.log("error:", err);
+      });
+  };
+};
+
+export const searchFetchAction = (key) => {
+  return (dispatch) => {
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${key}`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error while getting the datas");
+        }
+      })
+      .then((datas) => {
+        dispatch({
+          type: GET_SEARCH_FETCH,
           payload: datas.data,
         });
       })

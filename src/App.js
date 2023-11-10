@@ -5,6 +5,7 @@ import Player from "./components/Player";
 import MainContent from "./components/MainContent";
 import { Col, Container, Row } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Col id="main" className="col p-0">
             <Routes>
               <Route element={<MainContent />} path="/" />
+              <Route element={<SearchPage />} path="/searchPage/:search" />
               {/* <Route element={<MyFav />} path="/myFav" /> */}
               {/* <Route element={<MyPlayList />} path="/myPlayList" /> */}
             </Routes>
