@@ -13,8 +13,8 @@ const SearchInputField = () => {
     <Form
       onSubmit={(e) => {
         e.preventDefault();
+        dispatch(searchFetchAction(`${search}`));
         navigate(`/searchPage/${search}`);
-        // dispatch(searchFetchAction(search));
       }}
       className="my-2"
     >
@@ -33,6 +33,7 @@ const SearchInputField = () => {
           id="basic-addon2"
           className="bg-black text-white"
           onClick={() => {
+            dispatch(searchFetchAction(`${search}`));
             navigate(`/searchPage/${search}`);
           }}
         >
