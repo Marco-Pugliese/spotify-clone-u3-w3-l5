@@ -15,6 +15,11 @@ const SideBarUp = () => {
         <Library />
       </Link>
       <SearchInputField />
+      <div className="mt-5 border-top border-top-secondary w-100">
+        <Link to={"/myPlaylist"} className="nav-link">
+          <span className="smaller texthover">PlayList di prova</span>
+        </Link>
+      </div>
     </div>
   );
 };

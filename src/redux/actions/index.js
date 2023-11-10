@@ -8,6 +8,14 @@ export const GET_BEATLES_FETCH = "GET_BEATLES_FETCH";
 export const NOW_PLAYING = "NOW_PLAYING";
 export const IS_PLAYING = "IS_PLAYING";
 export const GET_SEARCH_FETCH = "GET_SEARCH_FETCH";
+export const SEARCH_KEY = "SEARCH_KEY";
+
+export const setKeyAction = (payload) => {
+  return {
+    type: SEARCH_KEY,
+    payload: payload,
+  };
+};
 
 export const isPlayingAction = (payload) => {
   return {

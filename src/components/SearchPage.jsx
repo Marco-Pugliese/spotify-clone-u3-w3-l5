@@ -1,9 +1,18 @@
 import { Col, Row } from "react-bootstrap";
 import Header from "./Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SingleCard from "./SingleCard";
+import { useEffect } from "react";
+import { searchFetchAction } from "../redux/actions";
+import { useParams } from "react-router-dom";
 
 const SearchPage = () => {
+  const { search } = useParams("search");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(searchFetchAction(search));
+  }, [search]);
+
   const datas = useSelector((state) => {
     return state.searchFetch;
   });
@@ -13,15 +22,11 @@ const SearchPage = () => {
       <Header />
       <Row className="justify-content-center mt-2 mb-5 px-5">
         <h1 className="text-white ms-4 fs-3 fw-bold">
-          Best of:{" "}
-          {datas !== undefined && (
-            <span className="mainColor">
-              {datas.searchFetch[0].artist.name}
-            </span>
-          )}
+          Search Results for: {}
+          {search !== undefined && <span className="mainColor">{search}</span>}
         </h1>
         {console.log(datas)}
-        {datas !== undefined &&
+        {search !== undefined &&
           datas.searchFetch.map((song) => {
             return (
               <Col

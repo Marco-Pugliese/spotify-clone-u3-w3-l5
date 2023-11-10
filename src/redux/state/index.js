@@ -6,6 +6,7 @@ import myList from "../reducers/myList";
 import nowPlaying from "../reducers/nowPlaying";
 import isPlaying from "../reducers/isPlaying";
 import searchFetch from "../reducers/searchFetch";
+import searchKey from "../reducers/searchKey";
 
 const combinedReducers = combineReducers({
   favourite,
@@ -14,6 +15,7 @@ const combinedReducers = combineReducers({
   nowPlaying,
   isPlaying,
   searchFetch,
+  searchKey,
 });
 const store = configureStore({
   reducer: combinedReducers,

@@ -1,19 +1,15 @@
 import { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { searchFetchAction } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 const SearchInputField = () => {
   const [search, setSearch] = useState();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   return (
     <Form
       onSubmit={(e) => {
         e.preventDefault();
-        dispatch(searchFetchAction(`${search}`));
         navigate(`/searchPage/${search}`);
       }}
       className="my-2"
@@ -33,7 +29,6 @@ const SearchInputField = () => {
           id="basic-addon2"
           className="bg-black text-white"
           onClick={() => {
-            dispatch(searchFetchAction(`${search}`));
             navigate(`/searchPage/${search}`);
           }}
         >

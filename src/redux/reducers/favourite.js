@@ -15,7 +15,7 @@ const list = (state = initialState, action) => {
         ...state,
         content: [
           ...state.content.filter(
-            (singleElement) => singleElement._id !== action.payload._id
+            (singleElement) => singleElement.id !== action.payload.id
           ),
         ],
       };

@@ -6,6 +6,8 @@ import MainContent from "./components/MainContent";
 import { Col, Container, Row } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import SearchPage from "./components/SearchPage";
+import MyFav from "./components/myFav";
+import MyPlaylist from "./components/MyPlaylist";
 
 function App() {
   return (
@@ -19,8 +21,8 @@ function App() {
             <Routes>
               <Route element={<MainContent />} path="/" />
               <Route element={<SearchPage />} path="/searchPage/:search" />
-              {/* <Route element={<MyFav />} path="/myFav" /> */}
-              {/* <Route element={<MyPlayList />} path="/myPlayList" /> */}
+              <Route element={<MyFav />} path="/myFav" />
+              <Route element={<MyPlaylist />} path="/myPlayList" />
             </Routes>
             <Player />
           </Col>

@@ -15,7 +15,7 @@ const list = (state = initialState, action) => {
         ...state,
         myList: [
           ...state.myList.filter(
-            (singleElement) => singleElement._id !== action.payload._id
+            (singleElement) => singleElement.id !== action.payload.id
           ),
         ],
       };
