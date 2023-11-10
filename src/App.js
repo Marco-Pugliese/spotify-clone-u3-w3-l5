@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import SideBar from "./components/SideBar";
+import Player from "./components/Player";
+import MainContent from "./components/MainContent";
+import { Col, Container, Row } from "react-bootstrap";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-0 p-0">
+      <Container fluid>
+        <Row>
+          <div className="d-none d-md-block p-0" id="sideBar">
+            <SideBar />
+          </div>
+          <Col id="main" className="col p-0">
+            <Routes>
+              <Route element={<MainContent />} path="/" />
+              {/* <Route element={<MyFav />} path="/myFav" /> */}
+              {/* <Route element={<MyPlayList />} path="/myPlayList" /> */}
+            </Routes>
+            <Player />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
